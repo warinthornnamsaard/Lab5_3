@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <script>
+        let student = [
+    {
+        fullname: 'นายตั้งใจ เรียนมาก',
+        age: 18,
+        year: 1,
+        gpa: 3.40,
+        help: true
+    },
+    {   
+        fullname: 'นายส่งงาน ตลอดมา',
+        age: 19,
+        year: 2,
+        gpa: 3.00,
+        help: false
+    },
+    {
+        fullname: 'นายประยุธ จันอังคาร',
+        age: 60,
+        year: 3,
+        gpa: 4.00,
+        help: false
+    },
+]
+let scholarship
+let scholarship_check =0
+for (let i in student){
+    if(student[i].gpa >= 3.20 && student[i].year >= 1){
+        if(student[i].help == true){
+            scholarship = 'ได้รับทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์และยังช่วยงานภาควิชาด้วย'
+            scholarship_check = 1
+        }
+        else{
+            scholarship = 'ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์'
+            scholarship_check = 1
+        }
+    }
+    else if(student[i].year >= 2 && student[i].help == true){
+        if(student[i].help == true && student[i].gpa >= 2.75){
+            scholarship = 'ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์และยังช่วยงานภาควิชา'
+            scholarship_check = '1'
+        }
+        else{
+            scholarship = 'ไม่ได้รับทุนการศึกษา เนื่องจากเกรดเฉลี่ยไม่ถึงเกณฑ์ แต่ช่วยงานภาควิชา'
+            scholarship_check = 0
+        }
+    }else if (student[i].help == true && student[i].year == 1){
+        scholarship='ไม่ได้ทุนการศึกษา เนื่องจากปี 1 เกรดเฉลี่ยไม่ถึงเกณฑ์แต่ช่วยงานภาควิชา'
+        scholarship_check = 0
+    }else{
+        scholarship = 'ไม่ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยนไม่ถึงเกณฑ์ และยังไม่ได้ช่วยงานภาควิชา'
+        scholarship_check = 0
+    }
+    if(scholarship_check == 1){
+        console.log('ชั้นปีที่ '+student[i].year+'\n'+student[i].fullname,scholarship)
+    }else{
+        console.log('ชั้นปีที่ '+student[i].year+'\n'+'ไม่มี')
+        }            
+}
+    </script>
+</html>
